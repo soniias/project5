@@ -28,12 +28,16 @@ class Human:
     #     if self.home.foot <= 0:
     #         self.shoping("food")
 
+    def to_repair(self):
+        self.car.strength += 100
+        self.money -= 50
+
     def clean_home(self):
-        self.mess = 0
-        self.gladness -= 50
+        self.home.mess = 0
+        self.gladness -= 5
 
     def chill(self):
-        self.mess += 5
+        self.home.mess += 5
         self.gladness += 10
 
 class House:
@@ -57,9 +61,6 @@ class Auto:
             print("The car cannot move!")
             return False
 
-    def to_repair(self):
-        self.strength += 100
-        self.money -= 50
 
 class Job:
     def __init__(self):
