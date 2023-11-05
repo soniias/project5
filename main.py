@@ -26,7 +26,7 @@ class Human:
         self.job = Job(job_list)
 
     def eat(self):
-        if self.home.foot <= 0:
+        if self.home.food <= 0:
             self.shopping("food")
         else:
             if self.satiety >= 100:
@@ -46,7 +46,7 @@ class Human:
                 self.to_repair()
                 return
         self.money += self.job.salary
-        self.gladness -= self.job.gladnesss_less
+        self.gladness -= self.job.gladness_less
         self.satiety -= 4
 
     def shopping(self, manage):
@@ -115,13 +115,13 @@ class Human:
     def live(self, day):
         if self.is_alive() == False:
             return False
-        elif self.home is None:
+        if self.home is None:
             print('Settled in the house!')
             self.get_home()
-        elif self.car is None:
+        if self.car is None:
             self.get_car()
             print(f'I bought a car {self.car.brand}')
-        elif self.job is None:
+        if self.job is None:
             self.get_job()
             print(f"I don't have a job, I'm gonna work as {self.job.job}"
                   f"with salary {self.job.salary}")
